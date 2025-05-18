@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int flowertype;
+    public bool isMerged = false;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isMerged)
+            return;
         
+        Flower otherFlower = collision.gameObject.GetComponent<Flower>();
+
+        if (otherFlower != null && !otherFlower.isMerged && otherFlower.flowertype == flowertype)
+        {
+            isMerged = true;
+            otherFlower.isMerged = true;
+
+            Vector3 mergePosition = (transform.position + otherFlower.transform.position) / 2f;
+
+            FlowerGame gamemanager = FindObjectOfType<FlowerGame>();
+            if (gamemanager != null)
+            {
+                gamemanager.MergeFlowers(flowertype, mergePosition);
+
+
+                Destroy(gameObject);
+                Destroy(otherFlower.gameObject);
+            }
+
+        }
     }
+   
+   
 }
