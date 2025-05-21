@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1176922199843528927}
   - component: {fileID: 1290777455926868590}
   - component: {fileID: 6508083750221954877}
-  - component: {fileID: 1491385471250195863}
+  - component: {fileID: 2323338637491948372}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1491385471250195863
+--- !u!114 &2323338637491948372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63f37c8dca7e9f4699d4b88e6918b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowertype: 1
+  flowerType: 1
   isMerged: 0

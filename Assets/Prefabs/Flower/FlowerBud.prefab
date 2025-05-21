@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7016350960476877790}
   - component: {fileID: 379846177560424253}
   - component: {fileID: 1995558925959404014}
-  - component: {fileID: 5677169997776928027}
+  - component: {fileID: 8399955175110506935}
   m_Layer: 0
   m_Name: FlowerBud
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5677169997776928027
+--- !u!114 &8399955175110506935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63f37c8dca7e9f4699d4b88e6918b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowertype: 2
+  flowerType: 2
   isMerged: 0

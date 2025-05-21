@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5119033796720874038}
   - component: {fileID: 3508297366572276203}
   - component: {fileID: 7553841659103221817}
-  - component: {fileID: 919808974698708258}
+  - component: {fileID: 1741668227111680782}
   m_Layer: 0
   m_Name: Honey
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &919808974698708258
+--- !u!114 &1741668227111680782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63f37c8dca7e9f4699d4b88e6918b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowertype: 4
+  flowerType: 4
   isMerged: 0
