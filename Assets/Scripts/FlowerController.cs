@@ -11,17 +11,15 @@ public class FlowerController : MonoBehaviour
     public float maxX = 2.5f;
 
     private GameObject currentFlower;
-    private bool isDropped = false;
-  
+    private bool isSpawning = false;
 
+    void Start()
+    {
+        StartCoroutine(SpawnNewFlowerWithDelay(0f)); // 시작하자마자 생성
+    }
 
     void Update()
     {
-        if (currentFlower == null && Input.GetMouseButtonDown(0))
-        {
-            SpawnNewFlower();
-        }
-
         if (currentFlower != null)
         {
             MoveFlowerWithMouse();
@@ -32,19 +30,12 @@ public class FlowerController : MonoBehaviour
             }
         }
     }
-    void SpawnNewFlower()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
-        float clampedX = Mathf.Clamp(worldPos.x, minX, maxX);
-
-        Vector3 spawnPosition = new Vector3(clampedX, spawnY, 0);
-        currentFlower = FlowerManager.Instance.SpawnFlower(spawnType, spawnPosition);
-    }
 
     void MoveFlowerWithMouse()
     {
         Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Mathf.Abs(mainCamera.transform.position.z); // Z 보정
+
         Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
         float clampedX = Mathf.Clamp(worldPos.x, minX, maxX);
 
@@ -58,8 +49,27 @@ public class FlowerController : MonoBehaviour
             Rigidbody2D rb = currentFlower.GetComponent<Rigidbody2D>();
             rb.gravityScale = 1f;
             currentFlower = null;
+
+            StartCoroutine(SpawnNewFlowerWithDelay(0.7f)); // 0.7초 후 새로 생성
         }
     }
 
-   
+    IEnumerator SpawnNewFlowerWithDelay(float delay)
+    {
+        if (isSpawning) yield break;
+        isSpawning = true;
+
+        yield return new WaitForSeconds(delay);
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Mathf.Abs(mainCamera.transform.position.z); // Z 보정
+
+        Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
+        float clampedX = Mathf.Clamp(worldPos.x, minX, maxX);
+        Vector3 spawnPosition = new Vector3(clampedX, spawnY, 0f);
+
+        currentFlower = FlowerManager.Instance.SpawnFlower(spawnType, spawnPosition);
+
+        isSpawning = false;
+    }
 }
