@@ -7,8 +7,11 @@ public class FlowerManager : MonoBehaviour
 
     public static FlowerManager Instance;
 
-    [Header("과일 프리팹 배열")]
+    [Header("꽃 순서 배열")]
     public GameObject[] flowerPrefabs;
+
+    [Header("꽃 크기 배열")]
+    public float[] flowerSizes = { 0.29f, 0.42f, 0.61f, 0.89f, 1.29f };
 
     private void Awake()
     {
@@ -20,13 +23,21 @@ public class FlowerManager : MonoBehaviour
 
     public void SpawnMergedFlower(FlowerType type, Vector3 position)
     {
-        GameObject fruit = Instantiate(flowerPrefabs[(int)type], position, Quaternion.identity);
-        fruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
+        GameObject flower = Instantiate(flowerPrefabs[(int)type], position, Quaternion.identity);
+
+        float scale = flowerSizes[(int)type];
+        flower.transform.localScale = new Vector3(scale, scale, 1f);
+
+        flower.GetComponent<Rigidbody2D>().gravityScale = 1f;
     }
 
     public GameObject SpawnFlower(FlowerType type, Vector3 position)
     {
         GameObject flower = Instantiate(flowerPrefabs[(int)type], position, Quaternion.identity);
+
+        float scale = flowerSizes[(int)type];
+        flower.transform.localScale = new Vector3(scale, scale, 1f);
+
         flower.GetComponent<Rigidbody2D>().gravityScale = 0f; 
         return flower;
     }
