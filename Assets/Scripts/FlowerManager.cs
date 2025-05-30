@@ -21,7 +21,7 @@ public class FlowerManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void SpawnMergedFlower(FlowerType type, Vector3 position)
+    public GameObject SpawnMergedFlower(FlowerType type, Vector3 position)
     {
         GameObject flower = Instantiate(flowerPrefabs[(int)type], position, Quaternion.identity);
 
@@ -29,6 +29,8 @@ public class FlowerManager : MonoBehaviour
         flower.transform.localScale = new Vector3(scale, scale, 1f);
 
         flower.GetComponent<Rigidbody2D>().gravityScale = 1f;
+
+        return flower;
     }
 
     public GameObject SpawnFlower(FlowerType type, Vector3 position)

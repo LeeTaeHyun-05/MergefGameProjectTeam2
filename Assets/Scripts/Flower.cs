@@ -28,7 +28,15 @@ public class Flower : MonoBehaviour
 
         if ((int)flowerType + 1 < System.Enum.GetValues(typeof(FlowerType)).Length)
         {
-            FlowerManager.Instance.SpawnMergedFlower(flowerType + 1, mergePosition);
+            FlowerType nextType = flowerType + 1;
+
+            GameObject merged = FlowerManager.Instance.SpawnMergedFlower(nextType, mergePosition);
+
+            if (nextType == FlowerType.Level5)
+            {
+                Quota.Instance.AddHoneyProgress();
+                Destroy(merged, 0.5f);
+            }
         }
 
         Destroy(other.gameObject);
