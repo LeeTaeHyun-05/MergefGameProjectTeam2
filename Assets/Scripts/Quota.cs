@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Quota : MonoBehaviour
 {
-    private Slider slider;
     public static Quota Instance;
+    private Slider slider;
 
     private void Awake()
     {
@@ -29,6 +29,19 @@ public class Quota : MonoBehaviour
         if (slider.value < slider.maxValue)
         {
             slider.value += 1;
+        }
+    }
+
+    public int GetValue()
+    {
+        return (int)slider.value;
+    }
+
+    public void DecreaseQuota()
+    {
+        if (slider.value >= 1)
+        {
+            slider.value -= 1;
         }
     }
 }
