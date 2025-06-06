@@ -3187,7 +3187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Setting: {fileID: 1864327847}
-  SkillPopup: {fileID: 0}
 --- !u!4 &1747909321
 Transform:
   m_ObjectHideFlags: 0
