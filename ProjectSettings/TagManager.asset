@@ -10,14 +10,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
-  - Title
-  - GameStart
-  - Character
-  - GameEnd
-  - Setting
+  - PlayGround
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,21 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 459308253
     locked: 0
-  - name: Title
-    uniqueID: 3340689805
+  - name: PlayGround
+    uniqueID: 2915597085
     locked: 0
-  - name: GameStart
-    uniqueID: 423950417
-    locked: 0
-  - name: Setting
-    uniqueID: 531648665
-    locked: 0
-  - name: GameEnd
-    uniqueID: 2595734997
+  - name: Default
+    uniqueID: 0
     locked: 0

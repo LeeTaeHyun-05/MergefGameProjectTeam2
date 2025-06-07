@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Quota : MonoBehaviour
 {
     public static Quota Instance;
+    public int maxQuota = 4;
+
     private Slider slider;
 
     private void Awake()
@@ -20,7 +22,7 @@ public class Quota : MonoBehaviour
     void Start()
     {
         slider = GetComponent<Slider>();
-        slider.maxValue = 4;
+        slider.maxValue = maxQuota;
         slider.value = 0;   
     }
 
@@ -43,5 +45,10 @@ public class Quota : MonoBehaviour
         {
             slider.value -= 1;
         }
+    }
+
+    public bool IsFull()
+    {
+        return slider.value >= slider.maxValue;
     }
 }
