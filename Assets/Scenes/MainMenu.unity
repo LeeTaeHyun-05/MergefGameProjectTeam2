@@ -3692,6 +3692,9 @@ MonoBehaviour:
   Stage1: {fileID: 1705130101}
   Stage2: {fileID: 322276471}
   Stage3: {fileID: 370041811}
+  SettingsPanel: {fileID: 0}
+  RestartInGame: {fileID: 0}
+  Defeat: {fileID: 0}
 --- !u!4 &768242663
 Transform:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI_button_GotoMain_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 52
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d003813bf427d7e4795f5108d2b91263
+      internalID: -153098040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_button_GotoMain_8
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 52
+        width: 31
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1005d19ef84c97947b18a3a23f7dc1e0
+      internalID: 1886096058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +148,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_button_GotoMain_0: -768560786
+      UI_button_GotoMain_1: -497498761
+      UI_button_GotoMain_2: -866103155
+      UI_button_GotoMain_3: -771879100
+      UI_button_GotoMain_4: 1467498130
+      UI_button_GotoMain_5: 1665345280
+      UI_button_GotoMain_6: 1503292950
+      UI_button_GotoMain_7: -153098040
+      UI_button_GotoMain_8: 1886096058
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
