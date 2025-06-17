@@ -110,6 +110,7 @@ public class ButtonManager : MonoBehaviour
     public void Stage1Start()
     {
         SceneManager.LoadScene("Stage1");
+        Debug.Log("Stage1Start 함수가 호출되었습니다!");
     }
 
     public void Stage2Start()
