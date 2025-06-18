@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -15,9 +17,128 @@ public class ButtonManager : MonoBehaviour
     public GameObject RestartInGame;
     public GameObject Defeat;
 
+    [Header("스테이지 버튼")]
+    public Button stage1Button;
+    public Button stage2Button;
+    public Button stage3Button;
+
     private bool isPaused = false;
 
-   
+    [Header("해금 안내 UI")]
+    public GameObject unlockNoticeUI;
+    public TMP_Text unlockNoticeText;
+
+    [Header("스테이지 팝업 UI")]
+    public GameObject stage2Popup;
+    public GameObject stage3Popup;
+
+    private Coroutine autoHideCoroutine;
+
+    void Start()
+    { 
+
+        if (stage1Button != null)
+        {
+            stage1Button.interactable = true;
+        }
+
+        if (stage2Button != null)
+        {
+            stage2Button.interactable = true;
+        }
+
+        if (stage3Button != null)
+        {
+            stage3Button.interactable = true;
+        }
+
+        if (unlockNoticeUI != null)
+        {
+            unlockNoticeUI.SetActive(false);
+        }
+    }
+
+    public void OnStageButtonClicked(int stageIndex)
+    {
+        int clear1 = PlayerPrefs.GetInt("Stage1Clear", 0);
+        int clear2 = PlayerPrefs.GetInt("Stage2Clear", 0);
+
+        switch (stageIndex)
+        {
+            case 1:
+                Stage1.SetActive(true);
+                break;
+
+            case 2:
+                if (clear1 == 1)
+                {  
+                    ShowOnlyPopup(stage2Popup);
+                }
+                else
+                { 
+                    ShowUnlockNotice("스테이지 1 클리어 후 해금됩니다.");
+                }
+                break;
+
+            case 3:
+                if (clear2 == 1)
+                {
+                    ShowOnlyPopup(stage3Popup);
+                }
+                else
+                {
+                    ShowUnlockNotice("스테이지 2 클리어 후 해금됩니다.");
+                }
+                break;
+        }
+    }
+    private void ShowOnlyPopup(GameObject popup)
+    {
+        if (unlockNoticeUI != null) unlockNoticeUI.SetActive(false);
+        if (stage2Popup != null) stage2Popup.SetActive(false);
+        if (stage3Popup != null) stage3Popup.SetActive(false);
+
+        if (popup != null) popup.SetActive(true);
+    }
+    private void ShowUnlockNotice(string message)
+    {
+        if (unlockNoticeText != null)
+            unlockNoticeText.text = message;
+
+        if (unlockNoticeUI != null)
+            unlockNoticeUI.SetActive(true);
+
+        if (autoHideCoroutine != null)
+            StopCoroutine(autoHideCoroutine);
+
+        autoHideCoroutine = StartCoroutine(AutoHideUnlockUI());
+    }
+    private IEnumerator AutoHideUnlockUI()
+    {
+        yield return new WaitForSeconds(2f);
+
+        if (unlockNoticeUI != null)
+            unlockNoticeUI.SetActive(false);
+
+        autoHideCoroutine = null;
+    }
+    public void CloseUnlockNotice()
+    {
+        if (unlockNoticeUI != null)
+            unlockNoticeUI.SetActive(false);
+
+        if (autoHideCoroutine != null)
+        {
+            StopCoroutine(autoHideCoroutine);
+            autoHideCoroutine = null;
+        }
+    }
+
+    public void SetStageCleared(int stageIndex)
+    {
+        PlayerPrefs.SetInt($"Stage{stageIndex}Clear", 1);
+        PlayerPrefs.Save();
+    }
     public void Pause()
     {
         isPaused = !isPaused;
@@ -77,30 +198,19 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    public void Stage1Open()
-    {
-        Stage1.SetActive(true);
-    }
-
     public void Stage1Quit()
     {
         Stage1.SetActive(false);
     }
 
-    public void Stage2Open()
-    {
-        Stage2.SetActive(true);
-    }
+    
 
     public void Stage2Quit()
     {
         Stage2.SetActive(false);
     }
 
-    public void Stage3Open()
-    {
-        Stage3.SetActive(true);
-    }
+    
 
     public void Stage3Quit()
     {
@@ -110,7 +220,7 @@ public class ButtonManager : MonoBehaviour
     public void Stage1Start()
     {
         SceneManager.LoadScene("Stage1");
-        Debug.Log("Stage1Start 함수가 호출되었습니다!");
+        
     }
 
     public void Stage2Start()
@@ -145,5 +255,16 @@ public class ButtonManager : MonoBehaviour
     public void DefeatGame()
     {
         Defeat.SetActive(true);
+    }
+
+    public void ClearStage1()
+    {
+        PlayerPrefs.SetInt("Stage1Clear", 1); 
+        PlayerPrefs.Save();                   
+    }
+    public void ClearStage2()
+    {
+        PlayerPrefs.SetInt("Stage2Clear", 1);
+        PlayerPrefs.Save();
     }
 }

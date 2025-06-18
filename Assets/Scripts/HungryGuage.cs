@@ -11,7 +11,7 @@ public class HungryGuage : MonoBehaviour
     private Slider slTimer;
     private Quota quota;
 
-    private float timerMax = 40f;
+    private float timerMax;
     private bool isRunning = true;
 
     private bool isPaused = false;
@@ -21,11 +21,7 @@ public class HungryGuage : MonoBehaviour
     void Start()
     {
         slTimer = GetComponent<Slider>();
-        if (slTimer == null )
-        {
-            return;
-        }
-        slTimer.maxValue = timerMax;
+        timerMax = slTimer.maxValue;
         slTimer.value = timerMax;   
 
         quota = Quota.Instance;
