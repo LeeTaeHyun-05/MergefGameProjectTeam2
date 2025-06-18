@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
+    
 
     public FlowerType flowerType;
     public bool isMerged = false;
