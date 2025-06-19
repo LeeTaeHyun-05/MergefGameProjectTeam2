@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using JetBrains.Annotations;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +15,7 @@ public class HungryGuage : MonoBehaviour
 
     private bool isPaused = false;
     private float resumeTime = 0f;
+    private IStageManager stageManager;
 
 
     void Start()
@@ -25,6 +25,7 @@ public class HungryGuage : MonoBehaviour
         slTimer.value = timerMax;   
 
         quota = Quota.Instance;
+        stageManager = FindObjectOfType<MonoBehaviour>() as IStageManager;
     }
 
     // Update is called once per frame
@@ -54,14 +55,13 @@ public class HungryGuage : MonoBehaviour
             slTimer.value -= Time.deltaTime;
         }
         else
-        {
-            if(quota.GetValue() >= 1)
+        { 
+            quota.DecreaseQuota();
+            slTimer.value = timerMax;
+            
+            if (quota.GetValue() <0)
             {
-                quota.DecreaseQuota();
-                slTimer.value = timerMax;
-            }
-            else
-            {
+                stageManager?.TriggerDefeat();
                 isRunning = false;
             }
         }

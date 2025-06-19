@@ -203,14 +203,10 @@ public class ButtonManager : MonoBehaviour
         Stage1.SetActive(false);
     }
 
-    
-
     public void Stage2Quit()
     {
         Stage2.SetActive(false);
     }
-
-    
 
     public void Stage3Quit()
     {
@@ -220,17 +216,20 @@ public class ButtonManager : MonoBehaviour
     public void Stage1Start()
     {
         SceneManager.LoadScene("Stage1");
-        
+        Time.timeScale = 1f;
+
     }
 
     public void Stage2Start()
     {
         SceneManager.LoadScene("Stage2");
+        Time.timeScale = 1f;
     }
 
     public void Stage3Start()
     {
         SceneManager.LoadScene("Stage3");
+        Time.timeScale = 1f;
     }
     public void Restart()
     {
