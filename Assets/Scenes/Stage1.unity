@@ -171,6 +171,62 @@ MonoBehaviour:
   spawnY: 3.5
   minX: -3.2
   maxX: 7
+--- !u!1 &334597254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334597256}
+  - component: {fileID: 334597255}
+  m_Layer: 0
+  m_Name: SpriteController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &334597255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334597254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225384d3db35bbb4cb7463b5aea39079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hungryGuage: {fileID: 2971968801203413354}
+  bearImage: {fileID: 8080005588964009293}
+  characterImage: {fileID: 3201510791991788372}
+  bearNormal: {fileID: 21300000, guid: 6d2a43aa99390194daf8796122e65b86, type: 3}
+  bearHungry: {fileID: 21300000, guid: 1d628532d169ed245a20fef0102a60d2, type: 3}
+  bearEating: {fileID: 21300000, guid: b8cd418dad94ba74d92108a7b917c462, type: 3}
+  bearFull: {fileID: 21300000, guid: a636cbe8099cdb543af4a71de2d4ee6a, type: 3}
+  characterNormal: {fileID: 21300000, guid: c479b8cfe81cd594f8f4ccd2bf6be005, type: 3}
+  characterScared: {fileID: 21300000, guid: e2a50092cdceb7a48a5b445d18975a82, type: 3}
+  characterSurprised: {fileID: 21300000, guid: 55728c44f9876944d9cd67201d37134f, type: 3}
+  characterSad: {fileID: 21300000, guid: ce5b32ea45e406c49a122b78fb6c9024, type: 3}
+  CurrentStage: 0
+--- !u!4 &334597256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334597254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.041666508, y: 0, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508940295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB300\uC0AC\n"
+  m_text: "\uACF0\uC744 \n\uC870\uC2EC\uD574\uC11C\n\uAFC0\uC744 \n\uB9CC\uB4E4\uC790\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1eb15c599a7ef8a458dd367b415688cd, type: 2}
   m_sharedMaterial: {fileID: -6052552098191871855, guid: 1eb15c599a7ef8a458dd367b415688cd, type: 2}
@@ -2962,9 +3018,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4941420780629049989}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 45
   m_WholeNumbers: 0
-  m_Value: 60
+  m_Value: 45
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8011,6 +8067,7 @@ SceneRoots:
   - {fileID: 508940298}
   - {fileID: 790852207}
   - {fileID: 267825414}
+  - {fileID: 334597256}
   - {fileID: 1511955225}
   - {fileID: 1684391828}
   - {fileID: 1179715059}
